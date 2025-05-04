@@ -1,0 +1,160 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 262 83% 66%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 32% 54%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 66%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 66%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262.1 83.3% 57.8%;
+  }
+
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0, 100;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(rgba(26, 31, 44, 0.8), rgba(26, 31, 44, 0.9)), url('/gym-hero.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .notification-dot {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Animation for floating labels */
+  input:focus-within ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply transform -translate-y-4 scale-75 z-10 ml-1 px-1 py-0;
+  }
+
+  /* Enhanced form animations */
+  .input-focus-effect:focus-within {
+    @apply border-fitpulse-purple shadow-[0_0_0_2px_rgba(139,92,246,0.25)];
+  }
+
+  .input-icon-animated {
+    @apply transition-all duration-300;
+  }
+  
+  .input-icon-animated.focused {
+    @apply text-fitpulse-purple scale-110;
+  }
+
+  /* Additional animations */
+  @keyframes shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+  }
+
+  .notification-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  /* Login form specific animations */
+  .form-label-float {
+    @apply transform transition-all duration-300;
+  }
+  
+  /* Enhanced input field focus styling */
+  .input-field:focus {
+    @apply ring-2 ring-fitpulse-purple border-transparent;
+  }
+  
+  /* Button hover effects */
+  .button-hover-scale {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  /* Staggered fade-in animation for multiple elements */
+  .stagger-fade-in > * {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+}
